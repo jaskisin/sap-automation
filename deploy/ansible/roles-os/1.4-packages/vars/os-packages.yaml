@@ -256,10 +256,20 @@ packages:
   redhat8.2:
   redhat8.4:
   redhat8.6:
+    - { tier: 'os',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'present' }
+    - { tier: 'ha',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'absent'  }
   redhat8.8:
+    - { tier: 'os',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'present' }
+    - { tier: 'ha',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'absent'  }
   redhat8.9:
+    - { tier: 'os',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'present' }
+    - { tier: 'ha',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'absent'  }
   redhat9.0:
+    - { tier: 'os',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'present' }
+    - { tier: 'ha',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'absent'  }
   redhat9.2:
+    - { tier: 'os',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'present' }
+    - { tier: 'ha',    package: 'NetworkManager-cloud-setup',                   node_tier: 'all',    state: 'absent'  }
 
   sles_sap12:
     - { tier: 'os',    package: 'chrony',                                       node_tier: 'all',     state: 'present' }
@@ -347,6 +357,7 @@ packages:
     - { tier: 'ha',    package: 'acl',                                          node_tier: 'hana',    state: 'present' }
     - { tier: 'ha',    package: 'socat',                                        node_tier: 'all' ,    state: 'present' }
     - { tier: 'ha',    package: 'corosync',                                     node_tier: 'hana',    state: 'present' }
+    - { tier: 'ha',    package: 'rsyslog',                                      node_tier: 'all',     state: 'present' }
     - { tier: 'ha',    package: 'resource-agents>=4.3',                         node_tier: 'all',     state: 'present' }
     - { tier: 'ha',    package: 'fence-agents>=4.4.0',                          node_tier: 'hana',    state: 'present' }
     - { tier: 'ha',    package: 'cloud-netconfig-azure>=1.3',                   node_tier: 'hana',    state: 'present' }
@@ -409,6 +420,7 @@ packages:
     - { tier: 'db2',   package: 'system-user-bin',                              node_tier: 'db2',     state: 'present' }
     - { tier: 'ha',    package: 'sapstartsrv-resource-agents',                  node_tier: 'scs',     state: 'present' }
     - { tier: 'ha',    package: 'sapstartsrv-resource-agents',                  node_tier: 'ers',     state: 'present' }
+    - { tier: 'ha',    package: 'open-iscsi',                                   node_tier: 'all',     state: 'present' }
 
   # Adding packages for Oracle linux 8.4 to start with, copied the list from RHEL.
   # Adding additional Oracle linux packages as per SAP Note 2069760 - Oracle Linux 7.x SAP Installation and Upgrade. Need to add the groupinstall command.
