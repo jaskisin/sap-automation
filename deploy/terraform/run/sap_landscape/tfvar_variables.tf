@@ -239,6 +239,37 @@ variable "web_subnet_nsg_arm_id"                {
                                                   default     = ""
                                                 }
 
+#########################################################################################
+#                                                                                       #
+#  Storage Subnet variables - Needed only during HANA Scaleout deployments              #
+#                                                                                       #
+#########################################################################################
+
+variable "storage_subnet_name"                  {
+                                                  description = "If provided, the name of the stroage subnet"
+                                                  default     = ""
+                                                }
+
+variable "storage_subnet_arm_id"                {
+                                                  description = "If provided, Azure resource id for the storage subnet"
+                                                  default     = ""
+                                                }
+
+variable "storage_subnet_address_prefix"        {
+                                                  description = "The address prefix for the storage subnet"
+                                                  default     = ""
+                                                }
+
+variable "storage_subnet_nsg_name"              {
+                                                  description = "If provided, the name of the storage subnet NSG"
+                                                  default     = ""
+                                                }
+
+variable "storage_subnet_nsg_arm_id"            {
+                                                  description = "If provided, Azure resource id for the storage subnet NSG"
+                                                  default     = ""
+                                                }
+
 
 #########################################################################################
 #                                                                                       #
@@ -380,6 +411,12 @@ variable "user_assigned_identity_id"            {
                                                   description = "If provided defines the user assigned identity to assign to the virtual machines"
                                                   default     = ""
                                                 }
+
+variable "deploy_monitoring_extension"          {
+                                                  description = "If defined, will add the Microsoft.Azure.Monitor.AzureMonitorLinuxAgent extension to the virtual machines"
+                                                  default     = false
+                                                }
+
 
 #########################################################################################
 #                                                                                       #
