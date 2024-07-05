@@ -395,22 +395,22 @@ resource "azurerm_virtual_machine_data_disk_attachment" "vm_dbnode_data_disk" {
 }
 
 # VM Extension
-resource "azurerm_virtual_machine_extension" "hdb_linux_extension" {
-  provider                             = azurerm.main
-  count                                = local.enable_deployment && var.database.deploy_v1_monitoring_extension ? var.database_server_count : 0
-  name                                 = "MonitorX64Linux"
-  virtual_machine_id                   = azurerm_linux_virtual_machine.vm_dbnode[count.index].id
-  publisher                            = "Microsoft.AzureCAT.AzureEnhancedMonitoring"
-  type                                 = "MonitorX64Linux"
-  type_handler_version                 = "1.0"
-  settings                             = jsonencode(
-                                           {
-                                             "system": "SAP",
+# resource "azurerm_virtual_machine_extension" "hdb_linux_extension" {
+#   provider                             = azurerm.main
+#   count                                = local.enable_deployment && var.database.deploy_v1_monitoring_extension ? var.database_server_count : 0
+#   name                                 = "MonitorX64Linux"
+#   virtual_machine_id                   = azurerm_linux_virtual_machine.vm_dbnode[count.index].id
+#   publisher                            = "Microsoft.AzureCAT.AzureEnhancedMonitoring"
+#   type                                 = "MonitorX64Linux"
+#   type_handler_version                 = "1.0"
+#   settings                             = jsonencode(
+#                                            {
+#                                              "system": "SAP",
 
-                                           }
-                                         )
-  tags                                 = var.tags
-}
+#                                            }
+#                                          )
+#   tags                                 = var.tags
+# }
 
 
 #########################################################################################
