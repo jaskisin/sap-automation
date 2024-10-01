@@ -772,7 +772,7 @@ locals {
                                                                                               try(data.terraform_remote_state.landscape.outputs.privatelink_dns_subscription_id,
                                                                                                 try(data.terraform_remote_state.landscape.outputs.management_dns_subscription_id, ""),
                                                                                                 " "
-                                                                                              )
+                                                                                              )," "
                                                                                             ))
 
                                             register_storage_accounts_keyvaults_with_dns = var.register_storage_accounts_keyvaults_with_dns
