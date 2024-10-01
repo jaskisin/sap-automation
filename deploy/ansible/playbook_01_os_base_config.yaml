@@ -80,14 +80,22 @@
 
         - name:                        "OS configuration playbook: - Set deployment type"
           ansible.builtin.set_fact:
-            single_server:             true
-          when:                        (ansible_play_hosts_all | length) == 1
+            single_server:              "{{ (ansible_play_hosts_all | length) == 1 }}"
           tags:
             - always
 
         - name:                        "OS configuration playbook: - Set os fact"
           ansible.builtin.set_fact:
             tier: os
+          tags:
+            - always
+
+        - name:                        "OS configuration playbook: - Create directories"
+          become:                      true
+          ansible.builtin.file:
+            path:                      '/etc/sap_deployment_automation/{{ sap_sid | upper }}'
+            state:                     directory
+            mode:                      '0755'
           tags:
             - always
 
