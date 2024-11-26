@@ -203,6 +203,15 @@
         "Options": [],
         "Overrules": "",
         "Display": 2
+      },
+      {
+        "Name": "prevent_deletion_if_contains_resources",
+        "Required": false,
+        "Description": "Prevent deletion of resource group if there are Resources left within the Resource Group during deletion",
+        "Type": "checkbox",
+        "Options": [],
+        "Overrules": "",
+        "Display": 2
       }
     ]
   },
@@ -309,6 +318,25 @@
         "Name": "use_private_endpoint",
         "Required": false,
         "Description": "Use private endpoint for the storage accounts and the key vaults in the deployment.",
+        "Type": "checkbox",
+        "Options": [],
+        "Overrules": "",
+        "Display": 2
+      },
+      {
+        "Name": "shared_access_key_enabled",
+        "Required": false,
+        "Description": "Storage account authorization using Shared Access Key.",
+        "Type": "checkbox",
+        "Options": [],
+        "Overrules": "",
+        "Display": 2
+      },
+
+      {
+        "Name": "shared_access_key_enabled_nfs",
+        "Required": false,
+        "Description": "Storage account authorization using Shared Access Key (NFS shares).",
         "Type": "checkbox",
         "Options": [],
         "Overrules": "",
@@ -2042,9 +2070,16 @@
         "Options": [],
         "Overrules": "",
         "Display": 2
-      },
+      }
+    ]
+  },
+
+  {
+    "Section": "Scale out Settings",
+    "Link": "https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-configure-system?branch=main#nfs-support",
+    "Parameters": [
       {
-        "Name": "database_HANA_use_ANF_scaleout_scenario",
+        "Name": "database_HANA_use_scaleout_scenario",
         "Required": false,
         "Description": "If true, the database tier will be configured for scaleout scenario.",
         "Type": "checkbox",
@@ -2069,6 +2104,36 @@
         "Options": [],
         "Overrules": "",
         "Display": 3
+      },
+      {
+        "Name": "hanashared_id",
+        "Required": false,
+        "Description": "Azure resource identifier for an existing storage account used for HANA shared.",
+        "Type": "lookup",
+        "Options": [
+          {
+            "Text": "",
+            "Value": ""
+          }
+        ],
+        "Overrules": "",
+        "Display": 3
+
+      },
+      {
+        "Name": "hanashared_private_endpoint_id",
+        "Required": false,
+        "Description": "Azure resource identifier for an existing private endpoint used for HANA shared.",
+        "Type": "lookup",
+        "Options": [
+          {
+            "Text": "",
+            "Value": ""
+          }
+        ],
+        "Overrules": "",
+        "Display": 3
+
       }
     ]
   },
