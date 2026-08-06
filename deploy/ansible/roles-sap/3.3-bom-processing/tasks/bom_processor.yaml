@@ -51,6 +51,7 @@
   vars:
     inventory_dir:                     "{{ download_directory }}/bom"
     task_prefix:                       "BOM Processing: "
+    current_bom_name:                  "{{ bom_name | default(bom_base_name + bom_suffix) }}"
 
 #   02) Create static download directories
 - name:                                "3.3 BoM Processing - Create SAP download directories"
